@@ -27,7 +27,7 @@ def get_model_category(model: str) -> str:
     model_lower = model.lower()
     premium = ["bmw", "mercedes", "audi", "lexus", "porsche"]
     economy = ["kia", "hyundai", "lada", "renault"]
-    
+
     if any(k in model_lower for k in premium):
         return "премиум"
     if any(k in model_lower for k in economy):

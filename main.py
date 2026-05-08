@@ -6,9 +6,9 @@ from car_calculator import calculate_final_price, get_model_category
 
 
 def validate_price(price_str: str) -> float:
-    """Проверяет корректность цены. Поддерживает запятые, пробелы и _."""
+    """Проверяет корректность цены. Поддерживает запятые, пробелы, _ и точки как разделители тысяч."""
     import re
-    cleaned = re.sub(r'[ ,_]', '', price_str)
+    cleaned = re.sub(r'[ ,_\.]', '', price_str)
     cleaned = cleaned.replace(',', '.')
     price = float(cleaned)
     if price <= 0:
