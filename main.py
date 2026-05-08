@@ -5,12 +5,11 @@ CLI-калькулятор стоимости авто "под ключ".
 from car_calculator import calculate_final_price, get_model_category
 
 
-def validate_price(price_str: str) -> float:
+def validate_price(price_str: str) -> int:
     """Проверяет корректность цены. Поддерживает запятые, пробелы, _ и точки как разделители тысяч."""
     import re
-    cleaned = re.sub(r'[ ,_\.]', '', price_str)
-    cleaned = cleaned.replace(',', '.')
-    price = float(cleaned)
+    cleaned = re.sub(r'[^0-9]', '', price_str)
+    price = int(cleaned)
     if price <= 0:
         raise ValueError("Цена должна быть положительной")
     if price > 100_000_000:
